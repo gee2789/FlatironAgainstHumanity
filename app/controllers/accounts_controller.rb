@@ -10,10 +10,9 @@ class AccountsController < ApplicationController
 
 	def create
 		@account = Account.new(account_params)
-		binding.pry
 		if Account.find_by(name: account_params[:name])
 			flash[:alert] = "You sure you have an account bro? Try again."
-			redirect_to root_path		
+			redirect_to root_path
 		elsif @account.save
 			flash[:alert] = "You've succesfully made an account"
 			redirect_to root_path

@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
   def redirect_login
   	redirect_to '/' if !logged_in?
   end
+
+  def index
+    @game = Game.new
+  end
+
+
 end
