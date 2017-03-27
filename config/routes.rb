@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :activegames
   resources :accounts
-  resources :games
+  resources :games, only: [:new, :create, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
