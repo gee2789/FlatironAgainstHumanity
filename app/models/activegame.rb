@@ -6,8 +6,9 @@ class Activegame < ApplicationRecord
 
 
   def player_count
-    @order_count = Activegame.group(:game_id).count
-    self.order = @order_count[self.game_id]+1
+
+    @order_count = Activegame.where(game_id: self.game_id).count
+    self.order = @order_count+1
     self.save
   end
 
