@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
 
 	def create
 		@account = Account.new(account_params)
+
 		if !(Account.find_by(name: account_params[:name])) && @account.save
 			flash[:alert] = "You've succesfully made an account"
 			redirect_to root_path

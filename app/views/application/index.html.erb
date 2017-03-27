@@ -3,9 +3,13 @@
 <% end %> <br>
 Welcome to Flatiron Against Humanity!<br>
 
+<%= form_for @game do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<%end%>
 
 <% unless current_account %>
 	<%= link_to "Create an Account!", new_account_path %> <br>
 	<%= link_to "Login", login_path %><br>
 <% end %>
-
