@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	get '/', to: 'application#index', as: 'root'
 	get '/login', to: 'accounts#login', as: 'login'
+	delete '/logout', to: 'sessions#destroy', as: 'logout'
   resources :activegames
   resources :games, only: [:create, :show]
   resources :accounts, only: [:new, :create]

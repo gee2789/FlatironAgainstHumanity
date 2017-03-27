@@ -5,13 +5,15 @@ class SessionsController < ApplicationController
 		if @account && @account.authenticate
 			session[:account_id] = @account.id
 		else
+
 			flash[:alert] = "Awww man, I couldn't create your account"
+
 			redirect_to '/'
 		end
 	end
 
 	def destroy
-		session.destroy
+		session[:account_id] = nil
 		redirect_to '/'
 	end
 
