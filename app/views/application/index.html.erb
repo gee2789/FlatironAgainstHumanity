@@ -1,0 +1,11 @@
+<% if flash[:alert] %>
+	<%= flash[:alert] %>
+<% end %> <br>
+Welcome to Flatiron Against Humanity!<br>
+
+
+<% unless current_account %>
+	<%= link_to "Create an Account!", new_account_path %> <br>
+	<%= link_to "Login", login_path %><br>
+<% end %>
+
