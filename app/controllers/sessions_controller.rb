@@ -3,15 +3,15 @@ class SessionsController < ApplicationController
 	def create
 		@account = Account.find_by(id: params[:id])
 		if @account && @account.authenticate
-			sessions[:account_id] = @account.id
+			session[:account_id] = @account.id
 		else
-			flash[:alert] = "Yoooo"
+			flash[:alert] = "sessions was not authenticated"
 			redirect_to '/'
 		end
 	end
 
 	def destroy
-		session.destroy
+		session[:account_id] = nil
 		redirect_to '/'
 	end
 
